@@ -1,0 +1,174 @@
+{
+  "main": {
+    "id": "79097e2c23322ac3",
+    "type": "split",
+    "children": [
+      {
+        "id": "7544545657643bd9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c4ddce1f90a5d3b9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "A Motivating Example - Linear Regression.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "A Motivating Example - Linear Regression"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8f4b8678d4b6f0e9",
+    "type": "split",
+    "children": [
+      {
+        "id": "537f787018746cc6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b8087fa74c2ddc9d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "563569ab3d1cfd92",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "3492d2b709489834",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "9a3a49d0aeb88ae6",
+    "type": "split",
+    "children": [
+      {
+        "id": "df3c768f2b8bc6ae",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dccc2e26b6716ff6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Educational Outcomes for Hearing-Impaired Children.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Educational Outcomes for Hearing-Impaired Children"
+            }
+          },
+          {
+            "id": "8a3f4c7a1b4e17fc",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Educational Outcomes for Hearing-Impaired Children.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Educational Outcomes for Hearing-Impaired Children"
+            }
+          },
+          {
+            "id": "163cb394f2fb792d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "e8fb923597d248ae",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Educational Outcomes for Hearing-Impaired Children.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Educational Outcomes for Hearing-Impaired Children"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "c4ddce1f90a5d3b9",
+  "lastOpenFiles": [
+    "Learn PyMC Core.md",
+    "A Motivating Example - Linear Regression.md",
+    "Educational Outcomes for Hearing-Impaired Children.md",
+    "CaseStudy1/Educational Outcomes for Hearing-ImpairedChildren.md",
+    "CaseStudy1"
+  ]
+}
