@@ -91,5 +91,22 @@ $$
 
 You will often encounter this re-parameterization in practice.
 ### Model Specification
+
+Specifying the model in PyMC mirrors its statistical specification. The model employs a couple of new distributions: the [HalfStudentT](https://www.pymc.io/projects/docs/en/latest/api/distributions/generated/pymc.HalfStudentT.html#pymc.HalfStudentT) distribution for the $\tau$ and $\lambda$ priors, and the [InverseGamma](https://www.pymc.io/projects/docs/en/latest/api/distributions/generated/pymc.InverseGamma.html#pymc.InverseGamma) distribution for the $c^2$ variable.
+
+In PyMC, variables with purely positive priors like [InverseGamma](https://www.pymc.io/projects/docs/en/latest/api/distributions/generated/pymc.InverseGamma.html#pymc.InverseGamma "pymc.InverseGamma") are transformed with a log transform. This makes sampling more robust. Behind the scenes, a variable in the unconstrained space (name `<variable-name>_log`) is added to the model for sampling. Variables with priors that constrain them on two sides, like [Beta](https://www.pymc.io/projects/docs/en/latest/api/distributions/generated/pymc.Beta.html#pymc.Beta) or [Uniform](https://www.pymc.io/projects/docs/en/latest/api/distributions/generated/pymc.Uniform.html#pymc.Uniform) are also transformed to be unconstrained but with a log odds transform.
+
+We will also take advantage of the named dimensions in PyMC and ArviZ by passing the input variable names into the model as coordinates called _predictors_. This technique allows us to pass this vector of names as a replacement for the `shape` integer argument in the vector-valued parameters. The model will then associate the appropriate name with each latent parameter that it is estimating. This implementation is a little more work to set up, but will pay dividends later when we are working with our model output.
+
+We'll encode this model in PyMC.
+
+Notice that we have wrapped the calculation of `beta`n in a `Deterministic` PyMC class. You can read more about this in detail below, but this choice ensures that the values of this deterministic value is retained in the sample trace.
+
+In addition, note that we have declared the `Model` name `test_score_model` in the first occurrence of the context manager, rather than splitting it into two lines, as we did for the first example.
+
+Once this model is complete, we can look at its structure using `GraphViz`, which plots the model graph. It's useful to ensure that the relationships in the model you have coded are correct, as its easy to make coding mistakes.
+```python
+pm.model_to_graphviz(test_score_model)nithth
+```
 ### Model Fitting
 ### Model Checking

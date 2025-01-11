@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Educational Outcomes for Hearing-Impaired Children.md",
+                "file": "Learn PyMC Core.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Educational Outcomes for Hearing-Impaired Children"
+              "title": "Learn PyMC Core"
             }
           }
         ]
@@ -165,9 +165,9 @@
   },
   "active": "c4ddce1f90a5d3b9",
   "lastOpenFiles": [
+    "Educational Outcomes for Hearing-Impaired Children.md",
     "Learn PyMC Core.md",
     "A Motivating Example - Linear Regression.md",
-    "Educational Outcomes for Hearing-Impaired Children.md",
     "CaseStudy1/Educational Outcomes for Hearing-ImpairedChildren.md",
     "CaseStudy1"
   ]
