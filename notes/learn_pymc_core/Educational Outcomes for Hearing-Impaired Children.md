@@ -43,6 +43,53 @@ X /= X.std()
 ```
 ## The Model
 
+This problem is a more realistic problem than our introductory linear regression problem. Specifically,
+
+- The problem is a **multivariate** problem
+- We do not know, _a priori_, which parameters are relevant for constructing a statistical model
+
+A number of approaches are available for solving the second issue; however, we will use _regularization_, a popular automated approach that penalizes ineffective covariates by shrinking them toward zero if they do not contribute toward predicting outcomes.
+
+In a Bayesian context, instead of using methods like lasso or ridge regression, we apply an appropriate **prior** to the regression coefficients. One such prior is the _hierarchical regularized horseshoe_. This prior uses **two** regularization strategies:
+- One global
+- A set of local parameters - one for each coefficient
+
+The key to making this work by selecting a  [long-tailed distribution](https://en.wikipedia.org/wiki/Long_tail) as the shrinkage priors. This approach allows some priors(?) to be non-zero while pushing the rest toward zero.
+
+The horseshoe prior for each regression coefficient, $\beta_{i}$, looks like:
+$$
+\beta_{i} \sim \mathcal{N}(0, \tau^{2} \cdot \widetilde{\lambda_{i}^2})
+$$
+where $\sigma$ is the prior on the error standard deviation that will also be used for the model likelihood.
+
+In this expression, $\tau$ is the global shrinkage parameter and $\widetilde{\lambda}_{i}$ is the local shrinkage parameter.
+
+Let's start global. For the prior on $\tau$, we will use the Half-StudentT distribution. This choice is reasonable because it is heavy-tailed.
+$$
+\tau \sim Half-StudentT_{2}(\frac{D_{0}}{D-D_{0}} \cdot \frac{\sigma}{\sqrt N})
+$$
+
+One catch: our parameterization requires a parameter, $D_{0}$, which represents the true number of non-zero parameters. Fortunately. we only need a reasonable guess and it only need be within an order of magnitude of the true number. We'll use half the number of predictors as our guess:
+```python
+D0 = int(D / 2)
+```
+
+The local shrinkage parameters are defined by the ration
+$$
+\widetilde{\lambda}_{i}^2 = \frac{c^2 \lambda_{i}^2}{c^2 + \tau^2 \lambda_{i}^2}
+$$
+
+To complete this specification, we need priors on $\lambda_{i}$ and $c$. Similar to the global shrinkage, we need a long-tailed Half-StudentT on the $\lambda_{i}$. We need $c$ to be strictly positive but not necessarily long-tailed. Consequently, we will use an inverse gamma prior on $c^2$, where $c^2 \sim InverseGamma(1, 1)$.
+
+Finally, to allow the NUTS sampler to sample the $\beta_{i}$ more efficiently, we will **re-parameterize** as follows:
+$$
+\begin{gather}
+z_{i} \sim \mathcal{N}(0, 1) \\
+\beta = z_{i} \cdot \tau \cdot \widetilde{\lambda_{i}}
+\end{gather}
+$$
+
+You will often encounter this re-parameterization in practice.
 ### Model Specification
 ### Model Fitting
 ### Model Checking
